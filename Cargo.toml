@@ -1,0 +1,8 @@
+[package]
+name = "chat-rs"
+version = "0.1.0"
+edition = "2018"
+authors = ["Sasha Prokhorenko <djminikin@gmail.com>"]
+license = "MIT OR Apache-2.0"
+
+[dependencies]
