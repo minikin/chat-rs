@@ -1,7 +1,3 @@
-fn main() {
-    println!("Hello, world!");
-}
-
 use async_std::io::prelude::WriteExt;
 use async_std::io::Write;
 use async_std::prelude::*;
