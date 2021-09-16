@@ -1,13 +1,12 @@
+use crate::chat_group::ChatGroup;
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
 
-use super::ChatGroup;
+pub struct GroupTable(Mutex<HashMap<Arc<String>, Arc<ChatGroup>>>);
 
-pub struct ChatGroupMap(Mutex<HashMap<Arc<String>, Arc<ChatGroup>>>);
-
-impl ChatGroupMap {
-    pub fn new() -> Self {
-        ChatGroupMap(Mutex::new(HashMap::new()))
+impl GroupTable {
+    pub fn new() -> GroupTable {
+        GroupTable(Mutex::new(HashMap::new()))
     }
 
     pub fn get(&self, name: &String) -> Option<Arc<ChatGroup>> {

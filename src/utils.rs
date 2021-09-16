@@ -1,21 +1,20 @@
-use async_std::io::prelude::WriteExt;
-use async_std::io::Write;
 use async_std::prelude::*;
 use serde::de::DeserializeOwned;
 use serde::Serialize;
 use std::error::Error;
+use std::marker::Unpin;
 
 pub type ChatError = Box<dyn Error + Send + Sync + 'static>;
 pub type ChatResult<T> = Result<T, ChatError>;
 
-pub async fn send_as_json<S, P>(outward: &mut S, data: &P) -> ChatResult<()>
+pub async fn send_as_json<S, P>(outbound: &mut S, packet: &P) -> ChatResult<()>
 where
-    S: Write + Unpin,
+    S: async_std::io::Write + Unpin,
     P: Serialize,
 {
-    let mut json = serde_json::to_string(&data)?;
+    let mut json = serde_json::to_string(&packet)?;
     json.push('\n');
-    outward.write_all(json.as_bytes()).await?;
+    outbound.write_all(json.as_bytes()).await?;
     Ok(())
 }
 
