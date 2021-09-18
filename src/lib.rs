@@ -1,18 +1,7 @@
 #![warn(rust_2018_idioms)]
 #![allow(elided_lifetimes_in_paths)]
-use serde::{Deserialize, Serialize};
-use std::sync::Arc;
 
 pub mod shared;
-
-#[derive(Debug, Deserialize, Serialize, PartialEq)]
-pub enum FromServer {
-    Message {
-        group_name: Arc<String>,
-        message: Arc<String>,
-    },
-    Error(String),
-}
 
 #[test]
 fn test_fromclient_json() {

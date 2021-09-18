@@ -3,6 +3,7 @@ use async_std::net::TcpStream;
 use async_std::prelude::*;
 use async_std::sync::Arc;
 use chat_rs::shared::client_response::ClientResponse;
+use chat_rs::shared::server_response::ServerResponse;
 use chat_rs::shared::utils::{self, ChatResult};
 
 use crate::group_table::GroupTable;
@@ -41,7 +42,7 @@ pub async fn serve(
         };
 
         if let Err(message) = result {
-            let report = FromServer::Error(message);
+            let report = ServerResponse::Error(message);
             outbound.send(report).await?;
         }
     }

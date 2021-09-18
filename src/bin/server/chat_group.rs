@@ -1,8 +1,8 @@
 use async_std::task;
+use chat_rs::shared::server_response::ServerResponse;
 use std::sync::Arc;
 use tokio::sync::broadcast;
 
-use chat_rs::FromServer;
 use tokio::sync::broadcast::error::RecvError;
 
 use crate::outbound::Outbound;
@@ -36,12 +36,12 @@ async fn handle_subscriber(
 ) {
     loop {
         let packet = match receiver.recv().await {
-            Ok(message) => FromServer::Message {
+            Ok(message) => ServerResponse::Message {
                 group_name: group_name.clone(),
                 message: message.clone(),
             },
 
-            Err(RecvError::Lagged(n)) => FromServer::Error(format!(
+            Err(RecvError::Lagged(n)) => ServerResponse::Error(format!(
                 "Dropped {} messages from {}.",
                 n, group_name
             )),
