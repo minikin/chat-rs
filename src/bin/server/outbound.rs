@@ -1,7 +1,7 @@
 use async_std::net::TcpStream;
 use async_std::prelude::*;
 use async_std::sync::Mutex;
-use chat_rs::utils::{self, ChatResult};
+use chat_rs::shared::utils::{self, ChatResult};
 use chat_rs::FromServer;
 
 pub struct Outbound(Mutex<TcpStream>);

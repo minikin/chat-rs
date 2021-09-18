@@ -3,18 +3,7 @@
 use serde::{Deserialize, Serialize};
 use std::sync::Arc;
 
-pub mod utils;
-
-#[derive(Debug, Deserialize, Serialize, PartialEq)]
-pub enum FromClient {
-    Join {
-        group_name: Arc<String>,
-    },
-    Post {
-        group_name: Arc<String>,
-        message: Arc<String>,
-    },
-}
+pub mod shared;
 
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub enum FromServer {
@@ -27,9 +16,10 @@ pub enum FromServer {
 
 #[test]
 fn test_fromclient_json() {
+    use crate::shared::client_response::ClientResponse;
     use std::sync::Arc;
 
-    let from_client = FromClient::Post {
+    let from_client = ClientResponse::Post {
         group_name: Arc::new("Dogs".to_string()),
         message: Arc::new("Samoyeds rock!".to_string()),
     };
@@ -41,7 +31,7 @@ fn test_fromclient_json() {
     );
 
     assert_eq!(
-        serde_json::from_str::<FromClient>(&json).unwrap(),
+        serde_json::from_str::<ClientResponse>(&json).unwrap(),
         from_client
     );
 }

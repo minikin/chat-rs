@@ -1,8 +1,8 @@
 use async_std::io;
 use async_std::net;
 use async_std::prelude::*;
-use chat_rs::utils::{self, ChatResult};
-use chat_rs::FromClient;
+use chat_rs::shared::client_response::ClientResponse;
+use chat_rs::shared::utils::{self, ChatResult};
 use std::sync::Arc;
 
 pub async fn send_commands(mut to_server: net::TcpStream) -> ChatResult<()> {
@@ -29,12 +29,12 @@ pub async fn send_commands(mut to_server: net::TcpStream) -> ChatResult<()> {
     Ok(())
 }
 
-pub fn parse_command(line: &str) -> Option<FromClient> {
+pub fn parse_command(line: &str) -> Option<ClientResponse> {
     let (command, rest) = get_next_token(line)?;
     if command == "post" {
         let (group, rest) = get_next_token(rest)?;
         let message = rest.trim_start().to_string();
-        return Some(FromClient::Post {
+        return Some(ClientResponse::Post {
             group_name: Arc::new(group.to_string()),
             message: Arc::new(message),
         });
@@ -43,7 +43,7 @@ pub fn parse_command(line: &str) -> Option<FromClient> {
         if !rest.trim_start().is_empty() {
             return None;
         }
-        return Some(FromClient::Join {
+        return Some(ClientResponse::Join {
             group_name: Arc::new(group.to_string()),
         });
     } else {

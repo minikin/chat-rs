@@ -2,7 +2,7 @@
 #![allow(elided_lifetimes_in_paths)]
 
 use async_std::prelude::*;
-use chat_rs::utils::ChatResult;
+use chat_rs::shared::utils::ChatResult;
 use std::sync::Arc;
 
 mod chat_group;
