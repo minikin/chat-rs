@@ -2,9 +2,12 @@ use async_std::io::BufReader;
 use async_std::net::TcpStream;
 use async_std::prelude::*;
 use async_std::sync::Arc;
-use chat_rs::shared::client_response::ClientResponse;
-use chat_rs::shared::server_response::ServerResponse;
-use chat_rs::shared::utils::{self, ChatResult};
+
+use chat_rs::shared::{
+    client_response::ClientResponse,
+    server_response::ServerResponse,
+    utils::{self, ChatResult},
+};
 
 use crate::group_table::GroupTable;
 use crate::outbound::Outbound;
