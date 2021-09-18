@@ -1,8 +1,8 @@
 use async_std::net;
 use async_std::prelude::*;
 use async_std::task;
-use chat_rs::utils::ChatResult;
 
+use chat_rs::shared::utils::ChatResult;
 use commands::send_commands;
 use replies::handle_replies;
 

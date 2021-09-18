@@ -2,8 +2,12 @@ use async_std::io::BufReader;
 use async_std::net::TcpStream;
 use async_std::prelude::*;
 use async_std::sync::Arc;
-use chat_rs::utils::{self, ChatResult};
-use chat_rs::{FromClient, FromServer};
+
+use chat_rs::shared::{
+    client_response::ClientResponse,
+    server_response::ServerResponse,
+    utils::{self, ChatResult},
+};
 
 use crate::group_table::GroupTable;
 use crate::outbound::Outbound;
@@ -20,13 +24,13 @@ pub async fn serve(
         let request = request_result?;
 
         let result = match request {
-            FromClient::Join { group_name } => {
+            ClientResponse::Join { group_name } => {
                 let group = groups.get_or_create(group_name);
                 group.join(outbound.clone());
                 Ok(())
             }
 
-            FromClient::Post {
+            ClientResponse::Post {
                 group_name,
                 message,
             } => match groups.get(&group_name) {
@@ -41,7 +45,7 @@ pub async fn serve(
         };
 
         if let Err(message) = result {
-            let report = FromServer::Error(message);
+            let report = ServerResponse::Error(message);
             outbound.send(report).await?;
         }
     }

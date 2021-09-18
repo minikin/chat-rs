@@ -1,35 +1,14 @@
 #![warn(rust_2018_idioms)]
 #![allow(elided_lifetimes_in_paths)]
-use serde::{Deserialize, Serialize};
-use std::sync::Arc;
 
-pub mod utils;
-
-#[derive(Debug, Deserialize, Serialize, PartialEq)]
-pub enum FromClient {
-    Join {
-        group_name: Arc<String>,
-    },
-    Post {
-        group_name: Arc<String>,
-        message: Arc<String>,
-    },
-}
-
-#[derive(Debug, Deserialize, Serialize, PartialEq)]
-pub enum FromServer {
-    Message {
-        group_name: Arc<String>,
-        message: Arc<String>,
-    },
-    Error(String),
-}
+pub mod shared;
 
 #[test]
 fn test_fromclient_json() {
+    use crate::shared::client_response::ClientResponse;
     use std::sync::Arc;
 
-    let from_client = FromClient::Post {
+    let from_client = ClientResponse::Post {
         group_name: Arc::new("Dogs".to_string()),
         message: Arc::new("Samoyeds rock!".to_string()),
     };
@@ -41,7 +20,7 @@ fn test_fromclient_json() {
     );
 
     assert_eq!(
-        serde_json::from_str::<FromClient>(&json).unwrap(),
+        serde_json::from_str::<ClientResponse>(&json).unwrap(),
         from_client
     );
 }
