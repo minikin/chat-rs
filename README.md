@@ -1,8 +1,8 @@
 Chat in Rust
 =============
 
-[<img alt="github" src="https://img.shields.io/badge/github-minikin/chat-rs-8da0cb?style=for-the-badge&labelColor=555555&logo=github" height="20">](https://github.com/minikin/chat-rs/)
-[<img alt="build status" src="https://img.shields.io/github/workflow/status/minikin/chat-rs/rust/main?style=for-the-badge" height="20">](https://github.com/minikin/chat-rs/actions?query=branch%3Amain)
+[<img alt="github" src="https://img.shields.io/badge/github-minikin/chat-rs?style=for-the-badge&labelColor=555555&logo=github" height="20">](https://github.com/minikin/chat-rs/)
+[![Rust](https://github.com/minikin/chat-rs/actions/workflows/rust.yml/badge.svg)](https://github.com/minikin/chat-rs/actions/workflows/rust.yml)
 
 
 <br>
