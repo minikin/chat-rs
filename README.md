@@ -1,11 +1,10 @@
-Chat in Rust
-=============
+<h1 align="center">Chat in Rust</h1>
 
-[<img alt="github" src="https://img.shields.io/badge/github-minikin/chat-rs?style=for-the-badge&labelColor=555555&logo=github" height="20">](https://github.com/minikin/chat-rs/)
-[![Rust](https://github.com/minikin/chat-rs/actions/workflows/rust.yml/badge.svg)](https://github.com/minikin/chat-rs/actions/workflows/rust.yml)
+[![Licensed under either of Apache License, Version 2.0 or MIT license at your option.](https://img.shields.io/badge/license-MIT-blue.svg)]()
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/minikin/chat-rs/blob/main/CODE_OF_CONDUCT.md)
+[![CI](https://github.com/minikin/chat-rs/actions/workflows/ci.yml/badge.svg)](https://github.com/minikin/chat-rs/actions/workflows/ci.yml)
 
 
-<br>
 
 #### License
 
