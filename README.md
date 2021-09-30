@@ -1,6 +1,6 @@
 <h1 align="center">Chat in Rust</h1>
 
-[![Licensed under either of Apache License, Version 2.0 or MIT license at your option.](https://img.shields.io/badge/license-MIT-blue.svg)]()
+[![Licensed under either of Apache License, Version 2.0 or MIT license at your option.](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/minikin/chat-rs/blob/main/LICENSE-MIT)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/minikin/chat-rs/blob/main/CODE_OF_CONDUCT.md)
 [![CI](https://github.com/minikin/chat-rs/actions/workflows/ci.yml/badge.svg)](https://github.com/minikin/chat-rs/actions/workflows/ci.yml)
 
