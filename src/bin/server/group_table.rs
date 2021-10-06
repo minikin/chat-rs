@@ -9,8 +9,8 @@ impl GroupTable {
         GroupTable(Mutex::new(HashMap::new()))
     }
 
-    pub fn get(&self, name: &String) -> Option<Arc<ChatGroup>> {
-        self.0.lock().unwrap().get(name).cloned()
+    pub fn get(&self, name: &str) -> Option<Arc<ChatGroup>> {
+        self.0.lock().unwrap().get(&name.to_string()).cloned()
     }
 
     pub fn get_or_create(&self, name: Arc<String>) -> Arc<ChatGroup> {

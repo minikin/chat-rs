@@ -34,21 +34,21 @@ pub fn parse_command(line: &str) -> Option<ClientResponse> {
     if command == "post" {
         let (group, rest) = get_next_token(rest)?;
         let message = rest.trim_start().to_string();
-        return Some(ClientResponse::Post {
+        Some(ClientResponse::Post {
             group_name: Arc::new(group.to_string()),
             message: Arc::new(message),
-        });
+        })
     } else if command == "join" {
         let (group, rest) = get_next_token(rest)?;
         if !rest.trim_start().is_empty() {
             return None;
         }
-        return Some(ClientResponse::Join {
+        Some(ClientResponse::Join {
             group_name: Arc::new(group.to_string()),
-        });
+        })
     } else {
         eprintln!("Unrecognized command: {:?}", line);
-        return None;
+        None
     }
 }
 
