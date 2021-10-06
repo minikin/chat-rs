@@ -4,7 +4,19 @@
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/minikin/chat-rs/blob/main/CODE_OF_CONDUCT.md)
 [![CI](https://github.com/minikin/chat-rs/actions/workflows/ci.yml/badge.svg)](https://github.com/minikin/chat-rs/actions/workflows/ci.yml)
 
-## Run
+# Content
+
+- [Features](#features)
+- [Demo](#demo)
+- [Todo](#todo)
+- [Support](#support)
+- [License](#license)
+
+## Features
+
+_WIP_
+
+## Demo
 
 1. To run the server
 
@@ -28,7 +40,7 @@ To join a chat group, type:
 join CHAT_GROUP_NAME
 ```
 
-Chat group name must not continue any spaces.
+_Chat group name must not contain any spaces._
 
 2. **post**
 
@@ -43,7 +55,11 @@ post berlin I love Berlin
 - [ ] Add user
 - [ ] Leave chat group
 
-#### License
+## Support
+
+Post issues and feature requests on the GitHub [issue tracker](https://github.com/minikin/chat-rs/issues).
+
+## License
 
 <sup>
 Licensed under either of <a href="LICENSE-APACHE">Apache License, Version
