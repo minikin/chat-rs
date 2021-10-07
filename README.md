@@ -34,7 +34,7 @@ cargo run --release --bin client -- localhost:8088
 
 1. **join**
 
-To join a chat group, type:
+To create a chat group and to join it, type:
 
 ```sh
 join CHAT_GROUP_NAME
@@ -44,10 +44,11 @@ _Chat group name must not contain any spaces._
 
 2. **post**
 
-To post messages to a chat group, type `chat group name` and your `message
+To post messages to a chat group, type `chat group name` and your `message`
 
 ```sh
-post berlin I love Berlin
+     [group]    [message]
+post berlin   Hi from Berlin!
 ```
 
 ## TODO
